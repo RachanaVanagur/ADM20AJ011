@@ -4,7 +4,7 @@
  Date: 29th January 2021
 */
 
-class Welcome
+public class Welcome
 {
  public static void main(String[] args)
  {
