@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.lang.Object;
 public class AbsTest {
 
 	public static void main(String[] args) {
