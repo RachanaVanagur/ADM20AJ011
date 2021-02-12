@@ -1,5 +1,6 @@
 package com.cognizant.ems;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.cognizant.ems.dao.EmployeeDAO;
@@ -24,13 +25,30 @@ public class EMSMain {
 				emp = readEmployeeData();
 				empdao.saveEmp(emp);
 				break;
-			case 2:				
+			case 2:	
+				
+				//your task
 				break;
-			case 3:				
+			case 3:		
+				System.out.print("enter emp no to delete: ");
+				int eno = sc.nextInt();
+				empdao.deleteEmp(eno);
 				break;
-			case 4:				
+			case 4:		
+				System.out.print("enter emp no to search: ");
+				eno = sc.nextInt();
+				emp = empdao.searchEmp(eno);
+				if(emp != null)
+					System.out.println(emp); //toString()
+				else
+					System.out.println("No matching employee found!");
 				break;
-			case 5:				
+			case 5:	
+				List<Employee> emps = empdao.getEmployees();
+				for(Employee em : emps) {
+					System.out.println(em);
+					Thread.sleep(1000);
+				}
 				break;				
 			case 6:
 				System.out.println("** BYE BYE**");
@@ -41,6 +59,7 @@ public class EMSMain {
 				System.out.println("INVALID OPTION.. TRY AGAIN");
 				break;				
 			}
+			System.out.println("=====================================");
 		}
 	}
 
