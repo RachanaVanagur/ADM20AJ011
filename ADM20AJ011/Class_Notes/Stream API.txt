@@ -1,0 +1,496 @@
+Stream API
+==========
+- to process objects of the collection
+
+- a new package in Java 8 - java.util.stream
+
+- consists of classes, interfaces and enum to allows functional-style operations on the elements
+
+- streams meant for processing objects from the collection. ie, it represents a stream of objects from the collection
+
+- We can create a Stream object to the collection by using stream() method of Collection interface. 
+
+- stream() method is a default method added to the Collection in 1.8 version.
+
+
+Stream provides following features:
+-----------------------------------
+- Stream does not store elements. It simply conveys elements from a source such as a data structure, an array etc through a pipeline of computational operations.
+ 
+- Stream is functional in nature. Operations performed on a stream does not modify it's source. For example, filtering a Stream obtained from a collection produces a new Stream without the filtered elements, rather than removing elements from the source collection.
+
+- Stream is lazy and evaluates code only when required.
+
+- The elements of a stream are only visited once during the life of a stream. Like an Iterator, a new stream must be generated to revisit the same elements of the source.
+
+
+Stream is an interface present in java.util.stream package. Once we get the Stream, by using that we can process objects of that collection.
+
+> We can process the objects in the following 2 phases:
+
+1.Configuration
+2.Processing
+
+1) Configuration:
+-----------------
+We can configure either by using filter mechanism or by using map mechanism.
+
+Filtering:
+----------
+We can configure a filter to filter elements from the collection based on some boolean condition by using filter()method of Stream interface.
+
+public Stream filter(Predicate<T> t) - here (Predicate<T > t ) can be a boolean valued function/lambda expression
+Ex:
+ Stream s = c.stream();
+ Stream s1 = s.filter(i -> i%2==0);
+
+Mapping:
+--------
+If we want to create a separate new object, for every object present in the collection based on our
+requirement then we should go for map() method of Stream interface.
+
+public Stream map (Function f);
+ it can be lambda expression also
+Ex:
+ Stream s = c.stream();
+ Stream s1 = s.map(i-> i+10);
+
+Once we performed configuration we can process objects by using several methods.
+
+2) Processing
+-------------
+- processing by collect() method
+- Processing by count()method
+- Processing by sorted()method
+- Processing by min() and max() methods
+- forEach() method
+- toArray() method
+- Stream.of()method
+
+List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
+
+processing by collect() method
+------------------------------
+Ex 1: To collect only even numbers from the array list
+
+Approach -1 : without using Stream
+public class StreamsTest1 
+{
+  public static void main(String[] args) {
+   List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9);		
+   System.out.println(nums);
+		
+   List<Integer> nums_evens = takeEvens(nums);
+   System.out.println("Evens List = "+ nums_evens);
+  }
+	
+  static List<Integer> takeEvens(List<Integer> nums){
+    List<Integer> newList = new ArrayList<>();
+    for(int num : nums) {
+      if(num%2 == 0)
+	newList.add(num);
+      }
+      return newList;
+  }
+}
+
+Approach -2 : using Stream API
+
+ List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9);		
+ System.out.println(nums);
+		
+ List<Integer> nums_evens = nums.stream().filter(n->n%2==0).collect(Collectors.toList());
+ System.out.println("Evens List = "+ nums_evens);
+
+
+Ex: Program for map() and collect() Method
+------------------------------------------
+map(java.util.function.Function)  --- R apply(T t)
+
+List<String> topics = Arrays.asList("core java","adv java","hibernate","SPRING");		
+System.out.println(topics);
+/*
+ Stream<String> stream1 = topics.stream();
+ Stream<String> stream2 = stream1.map(topic -> topic.toUpperCase());
+ List<String> topics_modified = stream2.collect(Collectors.toList());
+*/
+ List<String> topics_modified = topics.stream().map(topic -> topic.toUpperCase()).collect(Collectors.toList());
+ System.out.println("Modified Course Topics = " + topics_modified);
+
+
+Processing by count()method
+---------------------------
+- returns number of elements present in the stream.
+
+  public long count()
+
+- to get the topics while more than 4 characters
+
+ List<String> topics = Arrays.asList("core java","adv java","hibernate","SPRING");		
+ System.out.println(topics);
+		
+ long num = topics.stream().filter(topic -> topic.length()>5).count();
+ System.out.println("No of Topics with more than 5 characters Length = "+ num);
+
+
+Processing by sorted()method
+----------------------------
+- if we want to sort the elements present inside stream then we should go for sorted() method.
+
+- the sorting can either default natural sorting order or customized sorting order specified by
+comparator.
+
+ sorted()- default natural sorting order
+ sorted(Comparator c)-customized sorting order.
+
+
+List<String> topics = Arrays.asList("core java","adv java","hibernate","spring");		
+System.out.println(topics);
+		
+List<String> sorted_topics = topics.stream().sorted().collect(Collectors.toList());
+System.out.println(sorted_topics);
+
+- sorted using Comparator
+
+List<String> sorted_topics = topics.stream().sorted((topic1,topic2)->topic2.compareTo(topic1)).collect(Collectors.toList());
+System.out.println(sorted_topics);
+
+
+Processing by min() and max() methods
+-------------------------------------
+ min(Comparator c) - returns minimum value according to specified comparator.
+ max(Comparator c) - returns maximum value according to specified comparator
+
+List<Integer> nums = Arrays.asList(15,10,32,9,43);		
+System.out.println(nums);
+		
+Optional<Integer> minNumber = nums.stream()
+		              .min((i, j) -> i.compareTo(j));
+
+System.out.println("Minimum Value = "+ minNumber.get());
+		
+int maxValue = nums.stream().max((i,j) -> i.compareTo(j)).get();
+System.out.println("Maximum Value = "+ maxValue);
+
+
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+Comparator<Integer> minComparator = new Comparator<Integer>() {
+    @Override
+    public int compare(Integer n1, Integer n2) {
+       return n1.compareTo(n2);
+    }
+};
+ 
+Optional<Integer> minNumber = list.stream()
+                               .min(minComparator);
+System.out.println(minNumber.get());
+
+
+
+
+max_element = list.stream().mapToInt(v -> v).max().getAsInt();
+System.out.println("Max Element = "+ max_element);
+		
+min_element = list.stream().mapToInt(v -> v).min().getAsInt();
+System.out.println("Min Element = "+ min_element);
+
+
+forEach() method
+----------------
+ - This method will not return anything.
+
+ - This method will take lambda expression as argument and apply that lambda expression for each element present in the stream.
+
+list.stream().forEach(s->sop(s));
+list.stream().forEach(System.out:: println);
+
+---------------------------------------------------------
+
+A Complete Example:
+===================
+
+List<Integer> list = Arrays.asList(0,15,10,5,30,25,20);
+		
+System.out.println("Original List = "+ list);
+		
+//create a new List by adding 10 with each element
+List<Integer> list_1 = list.stream().map(i->i+10).collect(Collectors.toList());
+System.out.println("New List by adding 10 = "+ list_1);
+		
+//get the number of even elements in list
+long even_count = list.stream().filter(element -> element%2==0).count();
+System.out.println("No of Even Elements = "+ even_count);
+		
+//list the even elements in List
+List<Integer> even_elements = list.stream().filter(n -> n%2==0).collect(Collectors.toList());
+System.out.println("Even Elements = "+ even_elements);
+		
+//list.stream().filter(n -> n%2==0).forEach(System.out::println);
+		
+//to sort elements in ascending order
+List<Integer> list_2 = list.stream().sorted().collect(Collectors.toList());
+System.out.println("Sorted in Ascending Order: "+ list_2);
+		
+//to sort elements in descending order with Comparator
+Comparator<Integer> myComparator = (i,j) -> j.compareTo(i);
+List<Integer> list_3 = list.stream().sorted(myComparator).collect(Collectors.toList());
+System.out.println("Sorted in Descending Order: "+ list_3);
+		
+		
+myComparator = (i,j) -> i.compareTo(j);
+//to get the minimum element
+int min_element = list.stream().min(myComparator).get();
+System.out.println("Minimum Element = "+ min_element);
+		
+//to get the minimum element
+int max_element = list.stream().max(myComparator).get();
+System.out.println("Maximum Element = "+ max_element);
+		
+//to list all elements 
+list.stream().forEach(n -> System.out.print(n+"   "));
+System.out.println();
+list.stream().forEach(System.out::println);
+		
+max_element = list.stream().mapToInt(v -> v).max().getAsInt();
+System.out.println("Max Element = "+ max_element);
+		
+min_element = list.stream().mapToInt(v -> v).min().getAsInt();
+System.out.println("Min Element = "+ min_element);
+
+---------------------------------------------------------
+toArray() method
+----------------
+ -we can use toArray() method to copy elements present in the stream into specified array
+
+Integer[] ir = list.stream().toArray(Integer[] :: new);
+for(Integer i: ir) {
+   sop(i);
+}
+
+Example:
+List<Integer> list = Arrays.asList(0,15,10,5,30,25,20);
+Integer[] list_array = list.stream().toArray((Integer[]::new));
+System.out.println(Arrays.toString(list_array));
+---------------------------------------------------------
+Stream.of()method
+-----------------
+We can also apply a stream for group of values and for arrays.
+static Stream of(T t) - a Stream having single element only 
+static Stream of(T... values)
+
+
+Example :
+Stream s = Stream.of(99,999,9999,99999);
+s.forEach(System.out:: println);
+Double[] d={10.0,10.1,10.2,10.3};
+Stream s1=Stream.of(d);
+s1.forEach(System.out :: println);
+
+// Creating an Stream 
+Stream<String> courses = Stream.of("Java", "Python", "Ruby"); 
+  
+// Displaying the sequential ordered stream 
+courses.forEach(System.out::println); 
+---------------------------------------------------------
+
+use stream to filter, collect, print, and convert from one data structure to other etc
+
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamsExample1 
+{
+ public static void main(String[] args) 
+ {
+   List<Person> people = Arrays.asList(
+		   	new Person("Charles", "Deckens", 60), 
+		   	new Person("Lewis", "Carroll", 42),
+			new Person("Thomas", "Deckens", 51), 
+			new Person("Chris", "Stine", 43),
+			new Person("Charles", "Jem", 20));
+   
+   people.forEach(p -> System.out.println(p));
+   System.out.println();
+   
+   people.forEach(System.out::println);
+   System.out.println();
+   
+   people.stream()
+    .filter(p->p.getFirstName().startsWith("C"))
+    .forEach(p->System.out.println(p));
+ }
+}
+
+
+--------------------------
+Stream<Person> stream = people.stream();
+   System.out.println("No of Persons = "+ stream.count());
+   
+   Stream<Person> stream1 = people.stream().filter(p-> p.getFirstName().startsWith("C"));
+   long count = stream1.count();
+   System.out.println("No of Persons whose Name starts with C = "+ count);   
+
+OR
+
+long c = people.parallelStream()
+		   .filter(p->p.getFirstName().startsWith("C"))
+   		   .count();
+   System.out.println(c);
+---------------------------
+
+public class StreamsExample2 {
+
+	public static void main(String[] args) {
+		List<Product> productsList = new ArrayList<Product>();  
+        //Adding Products  
+        productsList.add(new Product(1,"HP Laptop",25000f));  
+        productsList.add(new Product(2,"Dell Laptop",30000f));  
+        productsList.add(new Product(3,"Lenevo Laptop",28000f));  
+        productsList.add(new Product(4,"Sony Laptop",28000f));  
+        productsList.add(new Product(5,"Apple Laptop",90000f));  
+        
+        List<Float> productPriceList = new ArrayList<Float>();  
+        
+        //filtering collection without using Streams 
+        for(Product p : productsList) {
+        	float price = p.getPrice();
+        	if(price > 25000)
+        		productPriceList.add(price);
+        }
+        System.out.println("---- product prices more than 25000 ----");
+        System.out.println(productPriceList);
+        
+        //filtering collection using Streams
+        Stream<Product> productStream = productsList.stream();
+        List<Float> productPriceList2 = productStream.filter(prod -> prod.getPrice()>25000)
+        			 .map(p->p.getPrice())
+        			 .collect(Collectors.toList());
+        System.out.println(productPriceList2);
+	}
+}
+
+-----------------------------------
+Stream Iterating
+
+public class StreamsExample3 {
+
+	public static void main(String[] args) {
+		Stream.iterate(1, element->element+1)
+		.filter(element->element%5==0)
+		.limit(10)
+		.forEach(System.out::println);
+	}
+
+}
+
+----------------------------------
+Filtering and Iterating Collection
+
+productsList.stream()  
+ .filter(product -> product.price == 30000)  
+ .forEach(product -> System.out.println(product.name));    
+----------------------------------
+reduce() Method in Collection
+
+This method takes a sequence of input elements and combines them into a single summary result by repeated operation. For example, finding the sum of numbers, or accumulating elements into a list. 
+
+// This is more compact approach for filtering data
+		Float totalPrice = productsList.stream()
+				.map(product -> product.getPrice())
+				.reduce(0.0f,(sum, price) -> sum + price); // accumulating price
+		System.out.println(totalPrice);
+		// More precise code
+		float totalPrice2 = productsList.stream().map(product -> product.getPrice()).reduce(0.0f, Float::sum); // accumulating price, by referring method of Float class
+		System.out.println(totalPrice2);
+
+---------------------------------------
+Sum by using Collectors Methods
+
+// Using Collectors's method to sum the prices.  
+        double totalPrice3 = productsList.stream()  
+                        .collect(Collectors.summingDouble(product->product.getPrice()));  
+        System.out.println(totalPrice3);  
+
+---------------------------------------
+Find Max and Min Product Price
+
+finds min and max product price by using stream
+
+Product productA = productsList.stream()  
+                        .max((product1, product2)->   
+                        product1.price > product2.price ? 1: -1).get();  
+          
+        System.out.println(productA.price);  
+        // min() method to get min Product price  
+        Product productB = productsList.stream()  
+                .max((product1, product2)->   
+                product1.price < product2.price ? 1: -1).get();  
+        System.out.println(productB.price);  
+
+-------------------------------------
+count() Method in Collection
+
+long count = productsList.stream()  
+                    .filter(product->product.price<30000)  
+                    .count();  
+        System.out.println(count);  
+
+------------------------------------
+Convert List into Set
+
+// Converting product List into Set  
+        Set<Float> productPriceList =   
+            productsList.stream()  
+            .filter(product->product.price < 30000)   // filter product on the base of price  
+            .map(product->product.price)  
+            .collect(Collectors.toSet());   // collect it as Set(remove duplicate elements)  
+        System.out.println(productPriceList);  
+
+------------------------------------
+Convert List into Map
+
+Map<Integer,String> productPriceMap =   
+            productsList.stream()  
+            .collect(Collectors.toMap(p->p.id, p->p.name));  
+              
+        System.out.println(productPriceMap);  
+
+-----------------------------------
+Method Reference in stream
+
+List<Float> productPriceList =   
+                productsList.stream()  
+                            .filter(p -> p.price > 30000) // filtering data  
+                            .map(Product::getPrice)         // fetching price by referring getPrice method  
+                            .collect(Collectors.toList());  // collecting as list  
+        System.out.println(productPriceList);  
+
+
+---------------------------------
+Java Stream Filter
+
+Java stream provides a method filter() to filter stream elements on the basis of given predicate. Suppose you want to get only even elements of your list then you can do this easily with the help of filter method.
+
+This method takes predicate as an argument and returns a stream of consisting of resulted elements.
+
+ Predicate is a functional interface. So, you can also pass lambda expression here.
+
+Example-1
+
+productsList.stream()  
+                    .filter(p ->p.price> 30000)   // filtering price  
+                    .map(pm ->pm.price)          // fetching price  
+                    .forEach(System.out::println);  // iterating price  
+
+
+Example-2:
+fetching filtered data as a list.
+
+ List<Float> pricesList =  productsList.stream()  
+                    .filter(p ->p.price> 30000)   // filtering price  
+                    .map(pm ->pm.price)          // fetching price  
+                    .collect(Collectors.toList());  
+        System.out.println(pricesList);  
+
+
