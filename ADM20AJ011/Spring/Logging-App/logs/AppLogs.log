@@ -1,0 +1,5 @@
+22-Feb-2021 05:22:38 IST [main] - com.cognizant.logging.ReportGenerator1 main - This is a debug message
+22-Feb-2021 05:22:38 IST [main] - com.cognizant.logging.ReportGenerator1 main - This is an info message
+22-Feb-2021 05:22:38 IST [main] - com.cognizant.logging.ReportGenerator1 main - This is a warning message
+22-Feb-2021 05:22:38 IST [main] - com.cognizant.logging.ReportGenerator1 main - This is an error message
+22-Feb-2021 05:22:38 IST [main] - com.cognizant.logging.ReportGenerator1 main - This is a fatal message

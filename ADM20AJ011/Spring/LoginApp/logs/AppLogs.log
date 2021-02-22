@@ -1,0 +1,14 @@
+22-Feb-2021 05:55:46 IST [main] - com.cognizant.login.LoginInputScreen main - Invalid User Credentials
+22-Feb-2021 05:56:39 IST [main] - com.cognizant.login.LoginInputScreen main - Loggin in with userName -sunil
+22-Feb-2021 05:56:40 IST [main] - com.cognizant.login.LoginInputScreen main - Invalid User Credentials
+22-Feb-2021 05:56:58 IST [main] - com.cognizant.login.LoginInputScreen main - Loggin in with userName -admin
+22-Feb-2021 05:56:59 IST [main] - com.cognizant.login.LoginInputScreen main - Hai adminWelcome to our Application!
+22-Feb-2021 05:57:48 IST [main] - com.cognizant.login.LoginInputScreen main - Loggin in with userName -system
+22-Feb-2021 05:57:48 IST [main] - com.cognizant.login.LoginInputScreen main - system logged in!
+22-Feb-2021 06:00:10 IST [main] - com.cognizant.login.LoginInputScreen main - Loggin in with userName -dfsf
+22-Feb-2021 06:00:11 IST [main] - com.cognizant.login.LoginInputScreen main - dfsf logged in!
+22-Feb-2021 06:01:27 IST [main] - com.cognizant.login.LoginInputScreen main - Logging with userName -sunil
+22-Feb-2021 06:01:27 IST [main] - com.cognizant.login.LoginInputScreen main - sunil- Invalid User Credentials
+22-Feb-2021 06:01:50 IST [main] - com.cognizant.login.LoginInputScreen main - Logging with userName -sunil
+22-Feb-2021 06:01:51 IST [main] - com.cognizant.login.LoginInputScreen main - sunil- logging in || Invalid User Credentials
+22-Feb-2021 06:02:08 IST [main] - com.cognizant.login.LoginInputScreen main - scott- logging in || Hai scott, Welcome to our Application!

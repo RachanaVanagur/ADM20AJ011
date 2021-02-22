@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="orcl" class="java.lang.String">
+	 <constructor-arg value="Oracle"></constructor-arg>
+	</bean>
+	
+	<bean id="db" class="com.cognizant.spring.Databases">
+		<property name="dbNames">
+			<list>
+				<value>Oracle</value>
+				<value>MySQL</value>
+				<value>DB2</value>
+				<value>SQL Server</value>
+				<value>Mongo</value>
+				<ref bean="orcl"/>				
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="employees" class="com.cognizant.spring.MIS">
+		<property name="emps">
+			<map>
+				<entry key="101" value="Sunil"></entry>
+				<entry key="102" value="Naveen"></entry>
+				<entry key="103" value="Charles"></entry>
+				<entry key="101" value="Joseph"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="courses" class="com.cognizant.spring.Courses">
+		<property name="courseNames">
+			<set>
+				<value>Java</value>
+				<value>Java</value>
+				<value>Python</value>
+				<value>Data Science</value>
+				<value>AWS</value>
+			</set>			
+		</property>
+	</bean>
+</beans>
