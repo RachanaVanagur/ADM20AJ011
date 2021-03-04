@@ -1,0 +1,5 @@
+com\cognizant\test\AllTests.class
+com\cognizant\test\CalculatorTest.class
+com\cognizant\test\CalculatorTestMethodOrder.class
+com\cognizant\test\CalculatorTestWithDisplayName.class
+com\cognizant\test\CalculatorTestWithTag.class
