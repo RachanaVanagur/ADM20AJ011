@@ -1,7 +1,9 @@
 package com.cognizant.controllers;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,4 +36,14 @@ public class EmployeeController {
 	 List<Employee> emps = Arrays.asList(new Employee(1,"Sunil",2500f), new Employee(2,"Sanjay",4500f),new Employee(3,"Sagar",3450f));
 	 return new ResponseEntity<>(emps, HttpStatus.OK);
  } 
+ 
+ @GetMapping("/employeesmap")	
+ public ResponseEntity<Map<String,Employee>> getEmployeesMap() {
+	 Map<String, Employee> empsMap = new HashMap<>();
+	 empsMap.put("EMP-1", new Employee(1,"Sunil",2650f));
+	 empsMap.put("EMP-2", new Employee(2,"Anil",3650f));
+	 empsMap.put("EMP-3", new Employee(3,"Charles",4650f));
+	 
+	 return new ResponseEntity<>(empsMap, HttpStatus.OK);
+ }  
 }
