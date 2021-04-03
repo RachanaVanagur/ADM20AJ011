@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />	
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .container{                       
+            font-size:20px;                                    
+        }
+        p{
+            text-align:justify;
+            margin-top:50px;
+            padding:5px;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">09. JQuery | Selectors</a>
+    </nav>
+    <div class="container mt-5"> 
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa sapiente aspernatur quisquam quos blanditiis ducimus laudantium sed quis voluptatem nisi. Molestias ipsam tempora necessitatibus odio enim sed dolore sint iure dolores debitis, tenetur nemo, laborum repudiandae dignissimos, voluptas ex ut quos earum laudantium molestiae a! Perspiciatis sint, odio eum tempora illo molestiae unde facilis eaque consequuntur accusamus nesciunt quasi amet natus quos mollitia qui optio. At deleniti corporis debitis aspernatur, similique, autem necessitatibus facilis eveniet dignissimos ea aperiam ipsum error.</p>
+
+       <p id="para_1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius illo cumque alias, quaerat nobis, aspernatur consequatur ut ullam voluptas repellat atque at? Minus quaerat eveniet voluptatem mollitia saepe odit harum culpa enim, qui obcaecati officia error! Labore, ullam ipsam. Reprehenderit eius at quidem autem amet eaque hic magni atque, vel doloremque illo totam odit temporibus laboriosam laudantium quam quo praesentium molestiae veritatis ipsam animi. Mollitia at distinctio, temporibus quibusdam necessitatibus earum rem voluptatum tenetur dolorum, ut repellat beatae nesciunt sunt!</p>
+
+       <p class="bg_green">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa corrupti veniam quod quos, accusantium amet excepturi dicta maxime tempore omnis quia? Incidunt expedita, earum consectetur, iusto quasi tempore maiores, omnis totam amet dicta inventore officia aspernatur. Excepturi quidem libero cumque praesentium eum dolorum suscipit quas doloribus blanditiis minima quo maxime, ullam repellendus ad? Sed, repellat eum vitae saepe blanditiis voluptate recusandae optio. Id illum natus hic dignissimos ea accusantium reprehenderit odit. Saepe nihil alias impedit voluptatibus vitae sed laborum quam.</p>
+
+       <p class="bg_green">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa corrupti veniam quod quos, accusantium amet excepturi dicta maxime tempore omnis quia? Incidunt expedita, earum consectetur, iusto quasi tempore maiores, omnis totam amet dicta inventore officia aspernatur. Excepturi quidem libero cumque praesentium eum dolorum suscipit quas doloribus blanditiis minima quo maxime, ullam repellendus ad? Sed, repellat eum vitae saepe blanditiis voluptate recusandae optio. Id illum natus hic dignissimos ea accusantium reprehenderit odit. Saepe nihil alias impedit voluptatibus vitae sed laborum quam.</p>
+    </div>
+    <!--Integrate Bootstrap Java Scripts -->
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>   
+
+    <script>
+      //Tag/Element Selector  
+      $('p').click(function(){  
+       $('p').css({
+           'background-color':'orange',
+           'border':'5px solid black'
+       })
+      });
+
+      //ID Selector
+      $('#para_1').click(function(){  
+       $(this).css({
+           'background-color':'lightgreen',
+           'border':'5px solid black'
+       })
+      });
+
+      //class selector
+      $('.bg_green').click(function(){  
+       $('.bg_green').css({
+           'background-color':'green',
+           'border':'5px solid black',
+           'color':'white'
+       })
+      });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />	
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        #calc{
+            background:linear-gradient(45deg, black 50%, darkred 50%);
+            border-radius:15px;
+            box-shadow:0 0 10px black;
+        }
+        #calc table{
+            width:98%;
+            font-size:20px;            
+        }
+        #calc table tr{
+            height:45px;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">02. Bootstrap | Typography</a>
+    </nav>
+    <div class="container mt-5">
+        <div id=calc class="m-auto w-50 p-3 text-white">
+            <table>
+                <tr>
+                    <td>First No</td>
+                    <td><input type=text id=txtNum1 size=20></td>
+                </tr>
+                <tr>
+                    <td>Second No</td>
+                    <td><input type=text id=txtNum2 size=20></td>
+                </tr>                
+                <tr>
+                    <td>Answer</td>
+                    <td><span id=txtResult></span></td>
+                </tr>                
+                <tr>
+                    <td colspan=2 align=center>
+                        <input type="button" id="btn_sum" class="btn btn-primary" value="S U M">   
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--Integrate Bootstrap Java Scripts -->
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/add_number.js"></script>
+</body>
+</html>
+

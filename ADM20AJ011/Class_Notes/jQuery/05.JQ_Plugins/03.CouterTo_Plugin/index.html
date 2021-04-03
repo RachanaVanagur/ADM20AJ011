@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="plugins/jquery-3.5.1.js"></script>
+    <script src="https://kit.fontawesome.com/0a9ea0969b.js" crossorigin="anonymous"></script>
+    <title>Count To</title>
+</head>
+
+<body>
+    <nav>
+        <h2>JQuery | Count_To | Plugin</h2>
+    </nav>
+    <div class=container>
+        <div>
+            <i class="fa fa-users"></i>
+            <p>
+                <span class="timer" data-from="2000" data-to="5000" data-speed="5000" data-refresh-interval="50"></span>
+            </p>            
+            <h3>Students</h3>
+        </div>
+        
+    </div>
+
+    <script src="plugins/jquery.countTo.js"></script>
+    <script>
+       $('.timer').countTo(); 
+    </script>
+</body>
+
+</html>

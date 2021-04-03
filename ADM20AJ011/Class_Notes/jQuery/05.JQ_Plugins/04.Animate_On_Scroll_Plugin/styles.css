@@ -1,0 +1,29 @@
+body{
+    margin:0px;
+}
+nav{
+    padding:15px;
+    background:linear-gradient(45deg,black,darkred);
+    color:white
+}
+nav h2{
+    margin:5px 0px;
+}
+
+div{
+    margin:60px;
+    text-align:justify;
+    font-size:18px;  
+    padding:50px 20px;
+    background:linear-gradient(45deg,orangered,blueviolet);
+    border-radius:20px;
+    box-shadow:0 0 10px black;      
+}
+div p{
+    line-height:1.5;
+    margin:0px;
+}
+img{
+    border-radius:20px;
+    border:3px solid white;
+}

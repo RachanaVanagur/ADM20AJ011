@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div {
+            background-color: lightgreen;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bolder;
+            padding: 10px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            margin: 0px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            font-size: 20px;
+        }
+    </style>
+
+
+    <script src="js/jquery-3.6.0.js"></script>
+
+    <script type="text/javascript">
+        /*
+          $(document).ready(function(){
+            $("#input-2").keyup(function () {
+                let textEntered1 = $(this).val();
+                $("#display-2").text(textEntered1);
+            })
+          });
+        */
+        $(function () {
+            $("#input-2").keyup(function () {
+                let textEntered1 = $(this).val();
+                $("#display-2").text(textEntered1);
+            })
+        });
+    </script>
+
+    <title>Java Script Vs JQuery</title>
+</head>
+
+<body>
+    <div>
+        <h2>Java Script Approach</h2>
+        <input type="text" size=20 id="input-1">
+        <p id="display-1">___________</p>
+    </div>
+
+    <div>
+        <h2>JQuery Approach</h2>
+        <input type="text" size=20 id="input-2">
+        <p id="display-2">___________</p>
+    </div>
+
+    <script type="text/javascript">
+        let inputBox = document.querySelector("#input-1");
+        let displayElement = document.getElementById("display-1");
+
+        inputBox.addEventListener('keyup', function () {
+            let textEntered = inputBox.value;
+            displayElement.innerText = textEntered;
+        })
+    </script>
+    <!--
+    <script type="text/javascript">                  
+            $("#input-2").keyup(function () {
+                let textEntered1 = $(this).val();
+                $("#display-2").text(textEntered1);
+            })
+    </script>
+    -->
+</body>
+
+</html>

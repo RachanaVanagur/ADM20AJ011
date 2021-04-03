@@ -1,0 +1,221 @@
+jQuery Plugins
+==============
+Plugin is a special UI component
+
+A plug-in is a piece of code written in a standard JavaScript file. These files provide useful jQuery methods which can be used along with jQuery 
+
+Official jQuery Plugins - 
+plugins.jquery.com
+image > Magnific Popup
+Download > Extract it
+
+Steps:
+
+a) Including files
+magnific-popup.css , jquery.min.js , jquery.magnific-popup.js
+
+b) Initializing popup
+Popup initialization code should be executed after document ready, for example:
+
+$(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
+
+
+<body>
+    <div>
+        <a class="image-popup-vertical-fit" href="images/hipo_2.jpg"
+            title="Caption. Can be aligned to any side and contain any HTML.">
+            <img src="images/hipo_1.jpg" width="75" height="75">
+        </a>
+    </div>
+    <script>
+          $('.image-popup-vertical-fit').magnificPopup({type:'image'});
+    </script>
+</body>
+
+
+
+https://learn.jquery.com/plugins/
+
+
+Plugins-1
+=========
+www.jqueryscript.net
+> Zoom > Simple Yet Versatile jQuery Image Magnifying Plugin - Zoomple
+> Download > Extract the file 
+Copy .js and .css into our project
+
+1) Load the latest version of jQuery javascript library from a CDN.
+
+2) Load the jQuery Zoomple plugin files on your web page, after jQuery library.
+
+<link rel="stylesheet" href="styles/zoomple.css">
+
+at the end of <body>
+<script src="zoomple.js"></script>
+
+3) Insert a medium version of your image on your web page and wrap the image using <a> tag to set the large version.
+<a href="large.jpg" class="zoomple">
+    <img src="small.jpg" alt="" /> 
+</a>
+
+4) Call the plugin with options.
+$(document).ready(function() { 
+  $('.zoomple').zoomple({ 
+    blankURL : 'images/blank.gif',
+    bgColor : '#90D5D9',
+    loaderURL : 'images/loader.gif',
+    offset : {x:-150,y:-150},
+    zoomWidth : 300,  
+    zoomHeight : 300,
+    roundedCorners : true
+  });
+});
+
+
+Magnify Images On Mouse Hover - jqZoom
+
+
+
+Plugins-2
+=========
+Count-To-Plugin
+---------------
+
+google > countto js github
+(mhuggings)
+
+for fotawesome
+<script src="https://kit.fontawesome.com/0a9ea0969b.js" crossorigin="anonymous"></script>
+
+
+<i class="fa fa-users"></i>
+Learners
+
+<i class="fa fa-graduation-cap"></i>
+Trainers
+
+<i class="fa fa-book-reader"></i>
+Courses
+
+<i class="fa fa-download"></i>
+Downloads
+
+
+
+Animate on Scroll Plugin
+------------------------
+google > animate on scroll github
+michael snik
+
+1) Add styles in <head>:
+ <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+2) Add script right before closing </body> tag, and initialize AOS:
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+<script>
+    AOS.init({
+        offset: 50,
+        duration: 2000
+    });
+</script>
+
+3) Page content
+
+<div  data-aos="slide-right"
+data-aos="zoom-in-left"
+data-aos="zoom-in-right"
+data-aos="slide-left"
+data-aos="flip-left"
+
+
+
+
+
+jQuery Validation Plugin
+------------------------
+This jQuery plugin makes simple clientside form validation easy
+jqueryvalidation.org
+
+Click on "Download" Link 
+> https://github.com/jquery-validation/jquery-validation/releases/tag/1.19.2
+Click on "Releases"
+
+Click on "1.18.0 / 2018-09-09" 
+Download - "jquery-validation-1.18.0.zip"
+
+Extract it > copy "jquery.validate.js" / "jquery.validate.min.js" from "dist" folder and paste it in our application folder
+
+
+
+
+
+
+
+3) RegForm.html
+---------------
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="plugins/jquery-3.5.1.js"></script>
+
+    <title>Validtor Plugin</title>
+</head>
+
+<body>
+    <nav>
+        <h2>JQuery | Validator | Plugin</h2>
+    </nav>
+
+    <div>
+        <form id="reg_form" action="Login.jsp">
+            <p>
+                <label>User Name</label> 
+                <input type="text" name="uid" class="required" minlength=6>
+            </p>
+
+            <p>
+                <label>Password</label> 
+                <input type="password" name="pwd" class="required" minlength="5" maxlength="10">
+            </p>
+
+            <p>
+                <label>Email</label>
+                <input type="text" name="email" class="email required">
+            </p>
+
+            <p>
+                <label>Age</label>
+                <input type="text" name="age" min="10" max="90" id="age" class="number required">
+            </p>
+
+            <p>
+                <label>Web Address</label>
+                <input type="text" name="web" class="url required">
+            </p>
+
+            <p>
+                <input type="submit" value="Submit" name="sub" id="sub">
+            </p>
+        </form>
+    </div>
+    <script src="plugins/jquery.validate.js"></script>
+    <script>
+        $('#reg_form').validate({
+            errorClass:'errmsg'
+        });
+    </script>
+</body>
+
+</html>

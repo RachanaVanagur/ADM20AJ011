@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="plugins/zoomple.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="plugins/jquery-3.5.1.js"></script>
+    <title>Zoomple</title>
+</head>
+
+<body>
+    <nav>
+        <h2>JQuery | Zoom | Plugin</h2>
+    </nav>
+    <div style="margin:100px auto;text-align:center">
+        <a href="images/flower_big.jpg" class="zoomple" >
+            <img src="images/flower_small.jpg" alt="" >
+        </a>
+    </div>
+
+    <script src="plugins/zoomple.js"></script>
+    <script>
+        $('.zoomple').zoomple({
+            blankURL: 'images/blank.gif',
+            bgColor: '#90D5D9',
+            loaderURL: 'images/loader.gif',
+            offset: { x: -150, y: -150 },
+            zoomWidth: 300,
+            zoomHeight: 300,
+            roundedCorners: true
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.structure.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.theme.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #modal{
+            background:linear-gradient(45deg,black,darkred);
+            color:white;
+            font-size:22px;
+            border-radius:20px;
+            height:200px;
+            padding:10px;
+        }
+    </style>
+    <title>Dialog</title>
+</head>
+
+<body>
+    <nav id="header">
+        <h2>jQuery UI | Widget | Dialog </h2>
+    </nav>
+    <section style="margin:50px">
+        <div id="modal" title="My Dialog">
+            <h2>Softwave IT</h2>
+            <img src="images/flower.jpg" width="150px" alt="" style="float:left">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, exercitationem, rerum a veniam nesciunt alias quibusdam obcaecati quaerat enim reiciendis ipsa dolorum! Aliquam, numquam rem? Officia quo veritatis rem debitis.</p>
+        </div>
+        <div style="clear:left">
+            <button onclick="showDialog()">Show Dialog</button>
+        </div>
+        <div>
+            <button onclick="alert('Welcome')">Show Dialog</button>
+        </div>        
+    </section>
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+        let showDialog = ()=>{
+            //alert('Welcome to Softwave IT')
+            //$('#modal').dialog()
+            
+            $('#modal').dialog({
+                title:'My Custom Title',
+                draggable: false,
+                resizable:true,
+                width:500,
+                height:290,
+                modal:true,
+                buttons: [
+                    {
+                        text:'Close',
+                        icon:'ui-icon-closethick',
+                        click:function(){
+                            $(this).dialog("close")
+                        }
+                    },
+                    {
+                        text:'OK',
+                        icon:'ui-icon-ui-icon-folder-collapsed',
+                        click:function(){
+                           // $(this).dialog("close")
+                           alert('Please close dialog')
+                        }
+                    }
+                ]
+            })            
+        }
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+jQuery Validation Plugin
+-----------------------------------
+This jQuery plugin makes simple client side form validation easy.
+
+1) Download "jquery.validate.min.js" from Internet
+jquery-validation-1.13.1.zip
+
+extract the above file 
+
+copy "jquery.validate.min.js" from /dist folder and place it in our application folder along with jquery-1.12.4.min.js
+
+2) By using "errorClass" property , we can apply the class selector on validate jQuery library
+
+3) RegForm.html
+---------------
+<html>
+<head>
+<title>Registration Page</title>
+<style>
+.myclass
+{
+ font-family:verdana;
+ font-size:18px;
+ color:red;   
+}
+p,input
+{
+ font-family:verdana;
+ font-size:18px;
+ color:#ff0;
+ margin-top:26px;
+}
+input
+{
+ color:black   
+}
+body
+{
+ background-color:lightblue;  
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+
+<script type="text/javascript">
+$("document").ready(function()
+{
+$("#frm1").validate({errorClass: 'myclass'})       
+});
+</script>   
+</head>
+<body>
+
+<form id="frm1" action="">
+<p>
+User Name <input type="text" name="uid" class="required">
+</p>
+
+<p>
+Password <input type="password" name="pwd" class="required" minlength="5" maxlength="10">
+</p>
+
+<p>
+Email <input type="text" name="email" class="email required">
+</p>
+
+<p>
+Age <input type="text" name="age" min="10" max="90" id="age" class="number required">
+</p>
+
+<p>
+Web Address <input type="text" name="web" class="url required">
+</p>
+
+<p>
+<input type="submit" value="Submit" name="sub" id="sub">
+</p>
+</form>
+   
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="plugins/jquery.jqZoom.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="plugins/jquery-3.5.1.js"></script>
+    <title>Zoomple</title>
+</head>
+
+<body>
+    <nav>
+        <h2>JQuery | Zoom | Plugin</h2>
+    </nav>
+    <div class="container">
+        <h1>Magnify Image On Hover Example</h1>
+        <div class="example">
+        <div class="zoom-box">
+            <img src="https://source.unsplash.com/6TIpY5KqCYo/600x450" width="200" height="150" />
+        </div>
+    </div>
+    </div>
+
+    <script src="plugins/jquery.jqZoom.js"></script>
+    <script>
+        $("img").jqZoom({
+	    selectorWidth: 30,
+	    selectorHeight: 30,
+	    viewerWidth: 400,
+	    viewerHeight: 300
+	  });
+    </script>
+</body>
+
+</html>
